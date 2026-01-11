@@ -84,7 +84,7 @@ This will:
 - Apply Liquibase migrations automatically
 
 ## <img src="https://img.icons8.com/fluency/24/folder-tree.png"/> Project Structure
-
+```text
 src
  └── main
      ├── java/com/example.demo
@@ -97,6 +97,7 @@ src
      └── resources
            ├── application.yml
            └── db/changelog/** (Liquibase)
+```
 
 ## <img src="https://img.icons8.com/fluency/24/test-passed.png"/> Testing
 

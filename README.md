@@ -8,7 +8,10 @@
 
 ## <img src="https://img.icons8.com/fluency/24/ffbb00/info.png"/> Overview
 
-This project demonstrates a real-world backend service architecture featuring:
+This project models a simplified **enterprise order management domain** to demonstrate  
+real-world backend design patterns and clean Spring Boot MVC architecture.
+
+It demonstrates a real-world backend service architecture featuring:
 
 - **Java 21 + Spring Boot (MVC)**  
 - **PostgreSQL as primary datastore**

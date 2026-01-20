@@ -1,5 +1,3 @@
 package com.mth.spring.mvc.example.repository;
 
-public class OrderRepository {
-    
-}
+public interface OrderRepository {}

@@ -1,4 +1,4 @@
-<h2 align="center"><img src="https://img.icons8.com/fluency/24/007bff/settings.png"/> Enterprise Spring Boot API</h2>
+<h2 align="center"><img src="https://img.icons8.com/fluency/24/007bff/settings.png"/> Enterprise Order Management API (MVC)</h2>
 
 <p align="center">
   A clean, enterprise-style Spring Boot 3 MVC API with PostgreSQL & Liquibase — fully Dockerized for consistent local development environments.

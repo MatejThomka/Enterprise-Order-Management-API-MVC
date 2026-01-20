@@ -64,5 +64,53 @@ public class Order {
     this.updatedAt = Instant.now();
   }
 
-  
+  public Long getId() {
+    return id;
+  }
+
+  public String getOrderNumber() {
+    return orderNumber;
+  }
+
+  public Customer getCustomer() {
+    return customer;
+  }
+
+  public OrderStatus getStatus() {
+    return status;
+  }
+
+  public List<Item> getItems() {
+    return items;
+  }
+
+  public Instant getCreatedAt() {
+    return createdAt;
+  }
+
+  public Instant getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setOrderNumber(String orderNumber) {
+    this.orderNumber = orderNumber;
+  }
+
+  public void setCustomer(Customer customer) {
+    this.customer = customer;
+  }
+
+  public void setStatus(OrderStatus status) {
+    this.status = status;
+  }
+
+  public void addItem(Item item) {
+    items.add(item);
+    item.setOrder(this);
+  }
+
+  public void removeItem(Item item) {
+    items.remove(item);
+    item.setOrder(null);
+  }
 }

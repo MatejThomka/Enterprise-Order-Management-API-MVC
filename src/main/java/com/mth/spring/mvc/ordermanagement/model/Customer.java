@@ -39,7 +39,7 @@ public class Customer {
   @Column(nullable = false, updatable = false)
   private Instant createdAt;
 
-  private Instant udpateAt;
+  private Instant updatedAt;
 
   @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Order> orders = new ArrayList<>();
@@ -56,12 +56,12 @@ public class Customer {
   @PrePersist
   protected void onCreate() {
     this.createdAt = Instant.now();
-    this.udpateAt = Instant.now();
+    this.updatedAt = Instant.now();
   }
 
   @PreUpdate
   protected void onUpdate() {
-    this.udpateAt = Instant.now();
+    this.updatedAt = Instant.now();
   }
 
   public Long getId() {
@@ -80,7 +80,7 @@ public class Customer {
     return email;
   }
 
-  public String getPhoneNumebr() {
+  public String getPhoneNumber() {
     return phoneNumber;
   }
 
@@ -88,8 +88,8 @@ public class Customer {
     return createdAt;
   }
 
-  public Instant getUpdateAt() {
-    return udpateAt;
+  public Instant getUpdatedAt() {
+    return updatedAt;
   }
 
   public List<Order> getOrders() {
@@ -113,6 +113,9 @@ public class Customer {
   }
 
   public void addOrder(Order order) {
+    if (order == null) {
+        throw new IllegalArgumentException("Order must not be null");
+    }
     orders.add(order);
     order.setCustomer(this);
   }

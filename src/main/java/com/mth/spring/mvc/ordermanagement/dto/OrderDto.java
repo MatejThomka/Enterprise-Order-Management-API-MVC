@@ -8,5 +8,5 @@ public record OrderDto(
     String orderNumber,
     OrderStatus status,
     CustomerSummaryDto customer,
-    List<ItemDto> items,
+    List<ItemListDto> items,
     Instant createdAt) {}

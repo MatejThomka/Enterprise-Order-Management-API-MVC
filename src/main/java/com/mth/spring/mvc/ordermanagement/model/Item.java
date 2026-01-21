@@ -5,11 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.math.BigDecimal;
-import org.springframework.data.annotation.Id;
 
 @Entity
 @Table(name = "items")
@@ -24,19 +24,19 @@ public class Item {
   @Column(nullable = false)
   String description;
 
+  @Column(nullable = false)
   BigDecimal price;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "order_id")
+  @JoinColumn(name = "order_id", nullable = false)
   Order order;
 
   protected Item() {}
 
-  public Item(String name, String description, BigDecimal price, Order order) {
+  public Item(String name, String description, BigDecimal price) {
     this.name = name;
     this.description = description;
     this.price = price;
-    this.order = order;
   }
 
   public Long getId() {
@@ -47,7 +47,7 @@ public class Item {
     return name;
   }
 
-  public String description() {
+  public String getDescription() {
     return description;
   }
 

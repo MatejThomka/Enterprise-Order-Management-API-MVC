@@ -1,5 +1,5 @@
 package com.mth.spring.mvc.ordermanagement.dto;
 
-public record ItemDto() {
-    
-}
+import java.math.BigDecimal;
+
+public record ItemDto(Long id, String name, String description, BigDecimal price) {}

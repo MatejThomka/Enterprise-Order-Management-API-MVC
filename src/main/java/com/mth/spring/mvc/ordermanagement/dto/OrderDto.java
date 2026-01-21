@@ -1,3 +1,12 @@
 package com.mth.spring.mvc.ordermanagement.dto;
 
-public record OrderDto() {}
+import com.mth.spring.mvc.ordermanagement.model.OrderStatus;
+import java.time.Instant;
+import java.util.List;
+
+public record OrderDto(
+    String orderNumber,
+    OrderStatus status,
+    CustomerSummaryDto customer,
+    List<ItemDto> items,
+    Instant createdAt) {}

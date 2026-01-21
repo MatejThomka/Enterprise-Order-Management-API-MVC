@@ -3,8 +3,8 @@ package com.mth.spring.mvc.ordermanagement.mapper;
 import static com.mth.spring.mvc.ordermanagement.mapper.CustomerMapper.toCustomerSummaryDto;
 import static com.mth.spring.mvc.ordermanagement.mapper.ItemMapper.toItemListDtoList;
 
-import com.mth.spring.mvc.ordermanagement.dto.OrderDto;
-import com.mth.spring.mvc.ordermanagement.dto.OrderListDto;
+import com.mth.spring.mvc.ordermanagement.dto.response.OrderDto;
+import com.mth.spring.mvc.ordermanagement.dto.response.OrderListDto;
 import com.mth.spring.mvc.ordermanagement.model.Order;
 import java.util.List;
 

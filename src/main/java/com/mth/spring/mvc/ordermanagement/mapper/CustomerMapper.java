@@ -1,7 +1,7 @@
 package com.mth.spring.mvc.ordermanagement.mapper;
 
-import com.mth.spring.mvc.ordermanagement.dto.CustomerDto;
-import com.mth.spring.mvc.ordermanagement.dto.CustomerSummaryDto;
+import com.mth.spring.mvc.ordermanagement.dto.response.CustomerDto;
+import com.mth.spring.mvc.ordermanagement.dto.response.CustomerSummaryDto;
 import com.mth.spring.mvc.ordermanagement.model.Customer;
 
 public class CustomerMapper {
@@ -11,6 +11,7 @@ public class CustomerMapper {
       return null;
     }
     return new CustomerDto(
+        customer.getId(),
         customer.getFirstName(),
         customer.getLastName(),
         customer.getEmail(),

@@ -1,7 +1,7 @@
 package com.mth.spring.mvc.ordermanagement.mapper;
 
-import com.mth.spring.mvc.ordermanagement.dto.ItemDto;
-import com.mth.spring.mvc.ordermanagement.dto.ItemListDto;
+import com.mth.spring.mvc.ordermanagement.dto.response.ItemDto;
+import com.mth.spring.mvc.ordermanagement.dto.response.ItemListDto;
 import com.mth.spring.mvc.ordermanagement.model.Item;
 import java.util.List;
 

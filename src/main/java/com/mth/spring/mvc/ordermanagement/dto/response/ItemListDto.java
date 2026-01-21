@@ -1,4 +1,4 @@
-package com.mth.spring.mvc.ordermanagement.dto;
+package com.mth.spring.mvc.ordermanagement.dto.response;
 
 import java.math.BigDecimal;
 

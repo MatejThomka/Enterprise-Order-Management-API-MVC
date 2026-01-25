@@ -1,5 +1,5 @@
 package com.mth.spring.mvc.ordermanagement.service;
 
-public class OrderService {
+public class ItemService {
     
 }

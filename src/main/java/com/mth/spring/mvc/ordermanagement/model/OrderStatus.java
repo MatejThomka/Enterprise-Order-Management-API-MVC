@@ -6,7 +6,9 @@ public enum OrderStatus {
   CONFIRMED("confirmed"),
   PREPARING("preparing"),
   PACKAGING("packaging"),
-  SENT("sent");
+  SENT("sent"),
+  CANCELED("canceled"),
+  DELIVERED("delivered");
 
   private final String value;
 

@@ -56,12 +56,11 @@ public class Order {
    *
    * @param orderNumber the unique order number
    * @param customer the customer who placed the order
-   * @param status the current status of the order
    */
-  public Order(String orderNumber, Customer customer, OrderStatus status) {
+  public Order(String orderNumber, Customer customer) {
     this.orderNumber = orderNumber;
     this.customer = customer;
-    this.status = status;
+    this.status = OrderStatus.RECEIVED;
   }
 
   @PrePersist

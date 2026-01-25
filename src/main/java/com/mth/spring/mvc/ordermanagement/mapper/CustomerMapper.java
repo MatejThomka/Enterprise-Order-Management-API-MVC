@@ -45,11 +45,11 @@ public class CustomerMapper {
    * Converts a CreateCustomerRequest to a Customer entity.
    *
    * @param request the CreateCustomerRequest to convert
+   * @param email the email address for the new customer
    * @return the corresponding Customer entity
    */
-  public static Customer toEntity(CreateCustomerRequest request) {
-    return new Customer(
-        request.firstName(), request.lastName(), request.email(), request.phoneNumber());
+  public static Customer toEntity(CreateCustomerRequest request, String email) {
+    return new Customer(request.firstName(), request.lastName(), email, request.phoneNumber());
   }
 
   /**

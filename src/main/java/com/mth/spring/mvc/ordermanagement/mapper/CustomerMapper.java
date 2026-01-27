@@ -58,9 +58,10 @@ public class CustomerMapper {
    * @param customer the Customer entity to update
    * @param request the UpdateCustomerRequest containing the updated data
    */
-  public static void updateEntity(Customer customer, UpdateCustomerRequest request) {
+  public static Customer updateEntity(Customer customer, UpdateCustomerRequest request) {
     customer.setFirstName(request.firstName());
     customer.setLastName(request.lastName());
     customer.setPhoneNumber(request.phoneNumber());
+    return customer;
   }
 }

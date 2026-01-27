@@ -1,6 +1,7 @@
 package com.mth.spring.mvc.ordermanagement.service;
 
 import com.mth.spring.mvc.ordermanagement.dto.request.CreateCustomerRequest;
+import com.mth.spring.mvc.ordermanagement.dto.request.UpdateCustomerRequest;
 import com.mth.spring.mvc.ordermanagement.dto.response.CustomerDto;
 import com.mth.spring.mvc.ordermanagement.dto.response.CustomerSummaryDto;
 import com.mth.spring.mvc.ordermanagement.mapper.CustomerMapper;
@@ -85,6 +86,15 @@ public class CustomerService {
     }
 
     Customer customer = CustomerMapper.toEntity(request, email);
+
+    return CustomerMapper.toCustomerSummaryDto(customerRepository.save(customer));
+  }
+
+  public CustomerSummaryDto updateCustomer(Long id, UpdateCustomerRequest request) {
+    Customer customer = customerRepository.findById(id)
+        .orElseThrow(() -> new EntityNotFoundException("Customer not found with id: " + id));
+
+    customer = CustomerMapper.updateEntity(customer, request);
 
     return CustomerMapper.toCustomerSummaryDto(customerRepository.save(customer));
   }

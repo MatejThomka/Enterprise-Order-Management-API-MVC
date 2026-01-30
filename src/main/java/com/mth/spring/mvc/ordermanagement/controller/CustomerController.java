@@ -6,7 +6,10 @@ import com.mth.spring.mvc.ordermanagement.dto.response.CustomerDto;
 import com.mth.spring.mvc.ordermanagement.dto.response.CustomerSummaryDto;
 import com.mth.spring.mvc.ordermanagement.dto.response.Response;
 import com.mth.spring.mvc.ordermanagement.service.CustomerService;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -60,7 +63,8 @@ public class CustomerController {
    * @return the Response containing CustomerSummaryDto of the created customer
    */
   @PostMapping("/create")
-  public Response<CustomerSummaryDto> createCustomer(@RequestBody CreateCustomerRequest request) {
+  public Response<CustomerSummaryDto> createCustomer(
+      @RequestBody @Valid CreateCustomerRequest request) {
     return Response.of(HttpStatus.CREATED.value(), customerService.createCustomer(request));
   }
 
@@ -73,7 +77,19 @@ public class CustomerController {
    */
   @PatchMapping("/update/{id}")
   public Response<CustomerSummaryDto> updateCustomer(
-      @PathVariable Long id, @RequestBody UpdateCustomerRequest request) {
+      @PathVariable @NotNull Long id, @RequestBody @Valid UpdateCustomerRequest request) {
     return Response.of(HttpStatus.OK.value(), customerService.updateCustomer(id, request));
+  }
+
+  /**
+   * @DeleteMapping("/delete/{id}") Deletes a customer by their ID.
+   *
+   * @param id the ID of the customer to delete
+   * @return a Response indicating success (NO_CONTENT)
+   */
+  @DeleteMapping("/delete/{id}")
+  public Response<Void> deleteCustomer(@PathVariable @NotNull Long id) {
+    customerService.deleteCustomer(id);
+    return Response.of(HttpStatus.NO_CONTENT.value(), null);
   }
 }

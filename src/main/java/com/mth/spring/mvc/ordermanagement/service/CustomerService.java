@@ -90,12 +90,36 @@ public class CustomerService {
     return CustomerMapper.toCustomerSummaryDto(customerRepository.save(customer));
   }
 
+  /**
+   * Updates an existing customer based on the provided UpdateCustomerRequest.
+   *
+   * @param id the ID of the customer to update
+   * @param request the request containing updated customer details
+   * @return the CustomerSummaryDto of the updated customer
+   * @throws EntityNotFoundException if the customer is not found
+   */
   public CustomerSummaryDto updateCustomer(Long id, UpdateCustomerRequest request) {
-    Customer customer = customerRepository.findById(id)
-        .orElseThrow(() -> new EntityNotFoundException("Customer not found with id: " + id));
+    Customer customer =
+        customerRepository
+            .findById(id)
+            .orElseThrow(() -> new EntityNotFoundException("Customer not found with id: " + id));
 
     customer = CustomerMapper.updateEntity(customer, request);
 
     return CustomerMapper.toCustomerSummaryDto(customerRepository.save(customer));
+  }
+
+  /**
+   * Deletes a customer by their ID.
+   *
+   * @param id the ID of the customer to delete
+   * @throws EntityNotFoundException if the customer is not found
+   */
+  public void deleteCustomer(Long id) {
+    if (!customerRepository.existsById(id)) {
+      throw new EntityNotFoundException("Customer not found with id: " + id);
+    }
+
+    customerRepository.deleteById(id);
   }
 }

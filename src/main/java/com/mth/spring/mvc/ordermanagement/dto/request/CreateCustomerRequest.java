@@ -14,5 +14,5 @@ import jakarta.validation.constraints.NotBlank;
 public record CreateCustomerRequest(
     @NotBlank String firstName,
     @NotBlank String lastName,
-    @Email String email,
+    @NotBlank @Email String email,
     String phoneNumber) {}

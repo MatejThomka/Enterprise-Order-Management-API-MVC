@@ -121,4 +121,4 @@ GitHub Actions CI
 
 ## <img src="https://img.icons8.com/fluency/24/license.png"/> License
 
-MIT (recommended) — or omit if repository stays private.
+MIT

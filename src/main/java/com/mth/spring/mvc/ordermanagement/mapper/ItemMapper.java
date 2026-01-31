@@ -1,5 +1,6 @@
 package com.mth.spring.mvc.ordermanagement.mapper;
 
+import com.mth.spring.mvc.ordermanagement.dto.request.CreateItemRequest;
 import com.mth.spring.mvc.ordermanagement.dto.response.ItemDto;
 import com.mth.spring.mvc.ordermanagement.dto.response.ItemListDto;
 import com.mth.spring.mvc.ordermanagement.model.Item;
@@ -52,5 +53,33 @@ public class ItemMapper {
    */
   public static List<ItemListDto> toItemListDtoList(List<Item> items) {
     return items.stream().map(ItemMapper::toItemListDto).toList();
+  }
+
+  /**
+   * Converts a CreateItemRequest to an Item entity.
+   * @param request the CreateItemRequest to convert
+   * @return the corresponding Item entity
+   */
+  public static Item toEntity(CreateItemRequest request) {
+    return new Item(request.name(), request.description(), request.price());
+  }
+
+  /**
+   * Converts an ItemListDto to an Item entity.
+   * @param itemListDto the ItemListDto to convert
+   * @return the corresponding Item entity
+   */
+  public static Item toEntity(ItemListDto itemListDto) {
+    return new Item(itemListDto.name(), null, itemListDto.price());
+  }
+
+  /**
+   * Converts a list of ItemDto to a list of Item entities.
+   *
+   * @param items the list of ItemDto to convert
+   * @return the corresponding list of Item entities
+   */
+  public static List<Item> toEntityList(List<ItemListDto> items) {
+    return items.stream().map(ItemMapper::toEntity).toList();
   }
 }

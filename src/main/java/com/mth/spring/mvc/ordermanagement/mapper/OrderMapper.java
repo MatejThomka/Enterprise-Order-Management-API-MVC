@@ -3,6 +3,7 @@ package com.mth.spring.mvc.ordermanagement.mapper;
 import static com.mth.spring.mvc.ordermanagement.mapper.CustomerMapper.toCustomerSummaryDto;
 import static com.mth.spring.mvc.ordermanagement.mapper.ItemMapper.toItemListDtoList;
 
+import com.mth.spring.mvc.ordermanagement.dto.request.CreateOrderRequest;
 import com.mth.spring.mvc.ordermanagement.dto.response.OrderDto;
 import com.mth.spring.mvc.ordermanagement.dto.response.OrderListDto;
 import com.mth.spring.mvc.ordermanagement.model.Order;
@@ -60,5 +61,18 @@ public class OrderMapper {
    */
   public static List<OrderListDto> toOrderListDtoList(List<Order> orders) {
     return orders.stream().map(OrderMapper::toOrderListDto).toList();
+  }
+
+  /**
+   * Converts a CreateOrderRequest to an Order entity.
+   * @param orderNumber the unique order number
+   * @param request the CreateOrderRequest to convert
+   * @return the corresponding Order entity
+   */
+  public static Order toEntity(String orderNumber, CreateOrderRequest request) {
+    return new Order(
+        orderNumber,
+        request.customer() != null ? CustomerMapper.toEntity(request.customer(), request.customer().email()) : null,
+        request.items().stream().map(ItemMapper::toEntity).toList());
   }
 }

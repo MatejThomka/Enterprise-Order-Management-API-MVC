@@ -56,10 +56,12 @@ public class Order {
    *
    * @param orderNumber the unique order number
    * @param customer the customer who placed the order
+   * @param items the list of items in the order
    */
-  public Order(String orderNumber, Customer customer) {
+  public Order(String orderNumber, Customer customer, List<Item> items) {
     this.orderNumber = orderNumber;
     this.customer = customer;
+    this.items = items;
     this.status = OrderStatus.RECEIVED;
   }
 

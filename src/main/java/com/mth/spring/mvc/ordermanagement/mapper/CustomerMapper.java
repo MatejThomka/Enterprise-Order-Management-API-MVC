@@ -53,6 +53,19 @@ public class CustomerMapper {
   }
 
   /**
+   * Converts a CustomerSummaryDto to a Customer entity.
+   * @param customerSummaryDto the CustomerSummaryDto to convert
+   * @return the corresponding Customer entity
+   */
+  public static Customer toEntity(CustomerSummaryDto customerSummaryDto) {
+    return new Customer(
+        customerSummaryDto.firstName(),
+        customerSummaryDto.lastName(),
+        customerSummaryDto.email(),
+        null);
+  }
+
+  /**
    * Updates a Customer entity with data from an UpdateCustomerRequest.
    *
    * @param customer the Customer entity to update
